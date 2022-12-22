@@ -10,11 +10,6 @@ public class browserManager {
     WebDriver driver;
     Browser browser;
 
-    public browserManager()
-    {
-
-
-    }
     public WebDriver initbrowser(String browserName)
     {
         switch (browserName)
@@ -32,9 +27,9 @@ public class browserManager {
                 //browser = new ChromeManager(driver);
                 break;
 
-
         }
         driver = browser.setup();
+        BrowserInstanceManager.configDriver(driver);
         return driver;
 
     }

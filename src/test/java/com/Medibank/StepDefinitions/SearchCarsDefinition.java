@@ -1,6 +1,8 @@
 package com.Medibank.StepDefinitions;
 
 import Medibank.Managers.BrowserInstanceManager;
+import Medibank.Pages.PageObject.CarGuidesHomePage;
+import com.Medibank.base.base;
 import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
@@ -8,27 +10,25 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.openqa.selenium.WebDriver;
 
-public class SearchCarsDefinition {
-    WebDriver driver;
+import java.util.List;
 
+public class SearchCarsDefinition extends base {
+    WebDriver driver;
+    CarGuidesHomePage carGuidesHomePage;
     public SearchCarsDefinition()
     {
         driver = BrowserInstanceManager.GetBrowserInstance();
+        carGuidesHomePage = new CarGuidesHomePage(driver);
     }
     @Given("user is on the home page {string}")
-    public void user_is_on_the_home_page(String string) {
-        driver.get("https://www.google.com.au");
+    public void user_is_on_the_home_page(String url) {
+        driver.get(url);
     }
-    @When("user hovers to the menu buy + sell")
-    public void user_hovers_to_the_menu_buy_sell(DataTable dataTable) {
-        // Write code here that turns the phrase above into concrete actions
-        // For automatic transformation, change DataTable to one of
-        // E, List<E>, List<List<E>>, List<Map<K,V>>, Map<K,V> or
-        // Map<K, List<V>>. E,K,V must be a String, Integer, Float,
-        // Double, Byte, Short, Long, BigInteger or BigDecimal.
-        //
-        // For other transformations you can register a DataTableType.
-        throw new io.cucumber.java.PendingException();
+    @When("user hovers to the menu {string}")
+    public void user_hovers_to_the_menu(String menuName,DataTable dataTable) throws InterruptedException {
+        List<List<String>> menuItems = dataTable.asLists();
+        Hover(carGuidesHomePage.getBuyPlussellMenu());
+
     }
     @And("clicks on {string} link")
     public void clicks_on_link(String string) {

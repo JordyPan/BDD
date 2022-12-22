@@ -5,12 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0b6b4128-1df6-40a0-a79a-5b9ebb2e8c89" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/Medibank/Hooks/Hook.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/Medibank/Runner/Runner.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/resources/TestNGrunner/testng.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Medibank/Managers/BrowserInstanceManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Medibank/Managers/BrowserInstanceManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Medibank/Managers/browserManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Medibank/Managers/browserManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/Medibank/Hooks/Hook.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/Medibank/Hooks/Hook.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/com/Medibank/StepDefinitions/SearchCarsDefinition.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/Medibank/StepDefinitions/SearchCarsDefinition.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/FeatureFiles/SearchCars.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/FeatureFiles/SearchCars.feature" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

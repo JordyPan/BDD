@@ -5,7 +5,7 @@ Feature: Acceptance testing to validate that search cars functionality is workin
   @SearchCars
   Scenario Outline: Validate Search Cars page
     Given user is on the home page "<URL>"
-    When user hovers to the menu buy + sell
+    When user hovers to the menu "<menuName>"
       | Menu |
       | buy + sell |
       | reviews |
@@ -21,6 +21,6 @@ Feature: Acceptance testing to validate that search cars functionality is workin
     And Page title should include "<PageTitle>"
 
     Examples:
-      | URL | CarBrand | CarModel | CarLocation | CarPriceMax | PageTitle |
-      |https://www.carsguide.com.au/| BMW | 1 Series | VIC - ALL | $200,000 | Bmw 1 Series Under 200000 for Sale |
+      | URL | menuName | CarBrand | CarModel | CarLocation | CarPriceMax | PageTitle |
+      |https://www.carsguide.com.au/| buy + sell | BMW | 1 Series | VIC - ALL | $200,000 | Bmw 1 Series Under 200000 for Sale |
 
