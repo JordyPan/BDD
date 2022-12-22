@@ -1,8 +1,10 @@
 package com.Medibank.StepDefinitions;
 
 import Medibank.Managers.BrowserInstanceManager;
-import Medibank.Pages.PageObject.CarGuidesHomePage;
-import Medibank.Pages.PageObject.SearchCarsPage;
+import Medibank.PageObject.CarGuidesHomePage;
+import Medibank.PageObject.SearchCarsPage;
+import com.Medibank.PageActions.CarGuidesHomePageAction;
+import com.Medibank.PageActions.SearchCarsPageAction;
 import com.Medibank.base.base;
 import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.And;
@@ -17,35 +19,33 @@ public class SearchCarsDefinition extends base {
     WebDriver driver;
     CarGuidesHomePage carGuidesHomePage;
     SearchCarsPage searchCarsPage;
+    CarGuidesHomePageAction carGuidesHomePageAction;
+    SearchCarsPageAction searchCarsPageAction;
     public SearchCarsDefinition()
     {
         driver = BrowserInstanceManager.GetBrowserInstance();
-        carGuidesHomePage = new CarGuidesHomePage(driver);
-        searchCarsPage = new SearchCarsPage(driver);
+        carGuidesHomePageAction = new CarGuidesHomePageAction();
+        searchCarsPageAction = new SearchCarsPageAction();
+
     }
     @Given("user is on the home page {string}")
     public void user_is_on_the_home_page(String url) {
-        driver.get(url);
+        carGuidesHomePageAction.NavigateHome(url);
     }
     @When("user hovers to the menu {string}")
     public void user_hovers_to_the_menu(String menuName,DataTable dataTable){
         List<List<String>> menuItems = dataTable.asLists();
-        Hover(carGuidesHomePage.getBuyPlussellMenu());
 
+        carGuidesHomePageAction.HoverBuySellMenu();
     }
     @And("clicks on {string} link")
     public void clicks_on_link(String link) {
         // Write code here that turns the phrase above into concrete actions
-        if(link.equalsIgnoreCase("Search Cars"))
-        {
-            clickItem(carGuidesHomePage.getSearchCarsBtn());
-        }
+        carGuidesHomePageAction.ClickLink(link);
     }
     @And("select car brand as {string} from AnyMake Dropdown")
     public void select_car_brand_as_from_any_make_dropdown(String brandName) {
-        // Write code here that turns the phrase above into concrete actions
-        SelectDropDown(searchCarsPage.getAnyMakeField(),brandName);
-        
+        searchCarsPageAction.SelectAnyMake(brandName);
     }
     @And("select car model as {string} from SelectModel Dropdown")
     public void select_car_model_as_from_select_model_dropdown(String string) {

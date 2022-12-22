@@ -1,4 +1,4 @@
-package Medibank.Pages.PageObject;
+package Medibank.PageObject;
 
 import com.beust.ah.A;
 import org.openqa.selenium.WebDriver;
