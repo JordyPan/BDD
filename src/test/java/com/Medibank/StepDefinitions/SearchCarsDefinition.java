@@ -1,15 +1,23 @@
 package com.Medibank.StepDefinitions;
 
+import Medibank.Managers.BrowserInstanceManager;
 import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.openqa.selenium.WebDriver;
 
 public class SearchCarsDefinition {
+    WebDriver driver;
+
+    public SearchCarsDefinition()
+    {
+        driver = BrowserInstanceManager.GetBrowserInstance();
+    }
     @Given("user is on the home page {string}")
     public void user_is_on_the_home_page(String string) {
-
+        driver.get("https://www.google.com.au");
     }
     @When("user hovers to the menu buy + sell")
     public void user_hovers_to_the_menu_buy_sell(DataTable dataTable) {

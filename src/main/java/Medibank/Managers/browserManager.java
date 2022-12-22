@@ -10,9 +10,10 @@ public class browserManager {
     WebDriver driver;
     Browser browser;
 
-    public browserManager(WebDriver driver)
+    public browserManager()
     {
-        this.driver = driver;
+
+
     }
     public WebDriver initbrowser(String browserName)
     {
