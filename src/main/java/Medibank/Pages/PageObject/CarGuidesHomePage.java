@@ -20,6 +20,9 @@ public class CarGuidesHomePage {
     @FindBy(linkText = "reviews")
     private WebElement reviewsMenu;
 
+    @FindBy(linkText = "Search Cars")
+    private WebElement SearchCarsBtn;
+
     public WebElement getBuyPlussellMenu()
     {
         return buyPlussellMenu;
@@ -30,5 +33,9 @@ public class CarGuidesHomePage {
         return reviewsMenu;
     }
 
+    public WebElement getSearchCarsBtn()
+    {
+        return SearchCarsBtn;
+    }
 
 }

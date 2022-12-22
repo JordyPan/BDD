@@ -6,6 +6,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
@@ -48,6 +49,14 @@ public class base {
     {
         driver = BrowserInstanceManager.GetBrowserInstance();
         Actions actions = new Actions(driver);
-        actions.moveToElement(webElement).build().perform();
+        actions.moveToElement(WaitElementVisable(webElement)).build().perform();
+    }
+
+    public void SelectDropDown(WebElement selectName, String Name)
+    {
+        WaitElementVisable(selectName);
+        Select select = new Select(selectName);
+        select.selectByVisibleText(Name);
+
     }
 }

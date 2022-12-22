@@ -2,6 +2,7 @@ package com.Medibank.StepDefinitions;
 
 import Medibank.Managers.BrowserInstanceManager;
 import Medibank.Pages.PageObject.CarGuidesHomePage;
+import Medibank.Pages.PageObject.SearchCarsPage;
 import com.Medibank.base.base;
 import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.And;
@@ -15,30 +16,36 @@ import java.util.List;
 public class SearchCarsDefinition extends base {
     WebDriver driver;
     CarGuidesHomePage carGuidesHomePage;
+    SearchCarsPage searchCarsPage;
     public SearchCarsDefinition()
     {
         driver = BrowserInstanceManager.GetBrowserInstance();
         carGuidesHomePage = new CarGuidesHomePage(driver);
+        searchCarsPage = new SearchCarsPage(driver);
     }
     @Given("user is on the home page {string}")
     public void user_is_on_the_home_page(String url) {
         driver.get(url);
     }
     @When("user hovers to the menu {string}")
-    public void user_hovers_to_the_menu(String menuName,DataTable dataTable) throws InterruptedException {
+    public void user_hovers_to_the_menu(String menuName,DataTable dataTable){
         List<List<String>> menuItems = dataTable.asLists();
         Hover(carGuidesHomePage.getBuyPlussellMenu());
 
     }
     @And("clicks on {string} link")
-    public void clicks_on_link(String string) {
+    public void clicks_on_link(String link) {
         // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+        if(link.equalsIgnoreCase("Search Cars"))
+        {
+            clickItem(carGuidesHomePage.getSearchCarsBtn());
+        }
     }
     @And("select car brand as {string} from AnyMake Dropdown")
-    public void select_car_brand_as_from_any_make_dropdown(String string) {
+    public void select_car_brand_as_from_any_make_dropdown(String brandName) {
         // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+        SelectDropDown(searchCarsPage.getAnyMakeField(),brandName);
+        
     }
     @And("select car model as {string} from SelectModel Dropdown")
     public void select_car_model_as_from_select_model_dropdown(String string) {
