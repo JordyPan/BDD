@@ -26,7 +26,7 @@ public class Hook {
         driver.close();
         driver.quit();
     }
-
+    
     public String getBrowserType()
     {
         return "Chrome";
